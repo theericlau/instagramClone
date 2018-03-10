@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import monster from '../store';
 
 const Main = React.createClass({
   render() {
@@ -14,4 +15,6 @@ const Main = React.createClass({
   }
 });
 
+// console.log(store);
+console.log('chicken', monster);
 export default Main;
