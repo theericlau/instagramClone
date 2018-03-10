@@ -20,4 +20,4 @@ const router = (
   </Router>
 )
 
-render(router, document.getElementById('root'));
+render(router  , document.getElementById('root'));
