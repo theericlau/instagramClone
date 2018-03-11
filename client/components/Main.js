@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import monster from '../store';
 
+var hi = 'hi'
+
 const Main = React.createClass({
   render() {
     return (
@@ -10,6 +12,7 @@ const Main = React.createClass({
           <Link to="/">Instagram</Link>
         </h1>
         {React.cloneElement(this.props.children, this.props)}
+        {/* {this.props.children} */}
       </div>
     )
   }
