@@ -1,5 +1,6 @@
 function comments(state = [], action) {
-  // console.log(state, action);
+  console.log('i got triggered comments');
+
   return state;
 }
 
