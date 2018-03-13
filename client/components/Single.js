@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Photo from './Photo';
 
 class Single extends Component {
   render() {
