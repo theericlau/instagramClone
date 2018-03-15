@@ -34,7 +34,11 @@ function postComment(state = [], action) {
       }];
     case 'REMOVE_COMMENT':
       console.log('removing');
-      return state
+      //return deleted out comment
+      return [
+        ...state.slice(0, action.i),
+        ...state.slice(action.i +1)
+      ]
     default:
       return state;
   }
