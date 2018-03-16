@@ -1,6 +1,8 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 //import the root reducer
 import rootReducer from './reducers/index';
@@ -14,7 +16,18 @@ const defaultState = {
   comments
 }
 
-const store = createStore(rootReducer, defaultState);
+const store = createStore(rootReducer, defaultState,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
+  ));
+
+if (module.hot) {
+  module.hot.accept('./reducers/', ()=> {
+    const nextRootReducer = require('./reducers/index').default;
+    store.replaceReducer(nextRootReducer);
+  })
+}
 
 export const history = syncHistoryWithStore(browserHistory, store);
 export default store;
